@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -8,6 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { UserComponent } from './system/user/user.component';
+import {RouterModule} from '@angular/router';
+import {rootRouterConfig} from './app.routes';
+
+let rootRouterModule: ModuleWithProviders = RouterModule.forRoot(rootRouterConfig);
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { UserComponent } from './system/user/user.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    rootRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
